@@ -5,7 +5,8 @@ import 'package:horoscope_app/widget/horoscope_item_widget.dart';
 
 class HoroscopeList extends StatelessWidget {
   late List<Horoscope> allHoroscope;
-  HoroscopeList() {
+
+  HoroscopeList({Key? key}) : super(key: key) {
     allHoroscope = prepareTheDataSource();
   }
 
