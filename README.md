@@ -7,4 +7,6 @@ In the Horoscope app working with dummy data. I try to understand how to work he
 |              App Preview             |
 | :----------------------------------: |
 
-![Preview](https://user-images.githubusercontent.com/41169476/150301962-957b48e6-3bc7-4894-b254-f32629832085.mov)  
+
+
+<p align="center"> <img src="https://user-images.githubusercontent.com/41169476/150301962-957b48e6-3bc7-4894-b254-f32629832085.mov" alt="" />
