@@ -3,8 +3,6 @@ import 'package:horoscope_app/data/hero_tag.dart';
 import 'package:horoscope_app/model/horoscope.dart';
 import 'package:horoscope_app/widget/hero_widget.dart';
 
-import 'lat_long_widget.dart';
-
 class ImageWidget extends StatelessWidget {
   final Horoscope horoscope;
 
@@ -32,12 +30,10 @@ class ImageWidget extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  buildTopText(),
-                  LatLongWidget(
-                    horoscope: horoscope,
-                  ),
+                  Center(child: buildTopText()),
                 ],
               ),
             )
@@ -58,12 +54,16 @@ class ImageWidget extends StatelessWidget {
         ),
       );
 
-  Widget buildTopText() => Text(
-        horoscope.horoscopeName,
-        style: TextStyle(
-          color: Colors.grey[100],
-          fontWeight: FontWeight.bold,
-          fontSize: 40,
+  Widget buildTopText() => HeroWidget(
+        tag: HeroTag.horoscopeName(horoscope),
+        child: Text(
+          horoscope.horoscopeName,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.grey[100],
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
         ),
       );
 }

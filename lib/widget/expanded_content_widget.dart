@@ -28,12 +28,16 @@ class ExpandedContentWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              HeroWidget(
-                tag: HeroTag.horoscopeName(horoscope),
-                child: Text(
-                  horoscope.horoscopeName,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+              Expanded(
+                child: HeroWidget(
+                  tag: HeroTag.horoscopeDate(horoscope),
+                  child: Text(
+                    horoscope.horoscopeDate,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               ClipRRect(

@@ -22,11 +22,13 @@ class DetailedInfoWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 HeroWidget(
-                  tag: HeroTag.horoscopeName(horoscope),
+                  tag: HeroTag.horoscopeDate(horoscope),
                   child: Text(
-                    horoscope.horoscopeName,
+                    horoscope.horoscopeDate,
                     style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 ClipRRect(
