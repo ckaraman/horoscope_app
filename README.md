@@ -7,5 +7,5 @@ In the Horoscope app working with dummy data. I try to understand how to work he
 |              App Preview             |
 | :----------------------------------: |
 
-| https://user-images.githubusercontent.com/41169476/150301962-957b48e6-3bc7-4894-b254-f32629832085.mov |
+| <a href=" https://user-images.githubusercontent.com/41169476/150301962-957b48e6-3bc7-4894-b254-f32629832085.mov" target="_blank"><img src="preview.gif" width="350"></a>|
 
