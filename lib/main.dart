@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'page/horoscope_list.dart';
 
 void main() {

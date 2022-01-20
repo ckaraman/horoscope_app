@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:horoscope_app/data/hero_tag.dart';
-
 import 'package:horoscope_app/model/horoscope.dart';
 import 'package:horoscope_app/widget/hero_widget.dart';
 
@@ -19,8 +18,6 @@ class ExpandedContentWidget extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(8),
       child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        // mainAxisAlignment: MainAxisAlignment.end,
         children: [
           const Spacer(
             flex: 2,
@@ -53,18 +50,16 @@ class ExpandedContentWidget extends StatelessWidget {
               ),
             ],
           ),
-          // const SizedBox(height: 12),
           buildReview(horoscope: horoscope)
         ],
       ),
     );
   }
 
-  Widget buildReview({
-    required Horoscope horoscope,
-  }) =>
-      Expanded(
-        child: Text(horoscope.horoscopeGenerals,
-            style: const TextStyle(color: Colors.black54, fontSize: 13)),
+  Widget buildReview({required Horoscope horoscope}) => Expanded(
+        child: Text(
+          horoscope.horoscopeGenerals,
+          style: const TextStyle(color: Colors.black54, fontSize: 13),
+        ),
       );
 }

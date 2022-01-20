@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:horoscope_app/data/strings.dart';
 import 'package:horoscope_app/model/horoscope.dart';
 import 'package:horoscope_app/widget/horoscope_widget.dart';
 
@@ -32,10 +31,6 @@ class _HoroscopeItemWidgetState extends State<HoroscopeItemWidget> {
             onPageChanged: (index) => setState(() => pageIndex = index),
           ),
         ),
-        Text(
-          "${pageIndex + 1}/ ${Strings.BURC_ADLARI.length}",
-          style: const TextStyle(color: Colors.white70),
-        )
       ],
     );
   }

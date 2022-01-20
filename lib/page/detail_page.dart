@@ -3,8 +3,9 @@ import 'package:horoscope_app/data/hero_tag.dart';
 import 'package:horoscope_app/model/horoscope.dart';
 import 'package:horoscope_app/widget/detailed_info_widget.dart';
 import 'package:horoscope_app/widget/hero_widget.dart';
+import 'package:palette_generator/palette_generator.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Horoscope horoscope;
   final Animation animation;
 
@@ -15,6 +16,20 @@ class DetailPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  Color appColor = Colors.blueGrey[300] as Color;
+  late PaletteGenerator _generator;
+
+  @override
+  void initState() {
+    super.initState();
+    findAppColor();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
@@ -22,11 +37,12 @@ class DetailPage extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 250,
             pinned: true,
+            backgroundColor: appColor,
             flexibleSpace: FlexibleSpaceBar(
               title: HeroWidget(
-                tag: HeroTag.horoscopeName(horoscope),
+                tag: HeroTag.horoscopeName(widget.horoscope),
                 child: Text(
-                  horoscope.horoscopeName,
+                  widget.horoscope.horoscopeName,
                   style: TextStyle(
                       color: Colors.grey[100],
                       fontWeight: FontWeight.bold,
@@ -35,77 +51,33 @@ class DetailPage extends StatelessWidget {
               ),
               centerTitle: true,
               background: HeroWidget(
-                  tag: HeroTag.image(horoscope.horoscopeBigPicture),
+                  tag: HeroTag.image(widget.horoscope.horoscopeBigPicture),
                   child: Image.asset(
-                    horoscope.horoscopeBigPicture,
+                    widget.horoscope.horoscopeBigPicture,
                     fit: BoxFit.cover,
                   )),
             ),
           ),
           SliverToBoxAdapter(
             child: DetailedInfoWidget(
-              horoscope: horoscope,
+              horoscope: widget.horoscope,
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(horoscope.horoscopeDetail),
+              child: Text(widget.horoscope.horoscopeDetail),
             ),
           ),
         ],
       ),
     );
+  }
 
-    // Scaffold(
-    //   extendBodyBehindAppBar: true,
-    //   backgroundColor: Colors.white,
-    //   appBar: AppBar(
-    //     elevation: 0,
-    //     backgroundColor: Colors.transparent,
-    //     // title: const Text('Detay'),
-    //     //centerTitle: true,
-    //     actions: [
-    //       IconButton(
-    //         icon: const Icon(Icons.close),
-    //         onPressed: Navigator.of(context).pop,
-    //       ),
-    //       const SizedBox(width: 10)
-    //     ],
-    //     // leading: const Icon(Icons.search_outlined),
-    //   ),
-    //   body: Column(
-    //     children: [
-    //       Expanded(
-    //         flex: 4,
-    //         child: Stack(
-    //           alignment: Alignment.bottomCenter,
-    //           children: [
-    //             SizedBox.expand(
-    //               child: HeroWidget(
-    //                 tag: HeroTag.image(horoscope.horoscopeBigPicture),
-    //                 child: Image.asset(horoscope.horoscopeBigPicture,
-    //                     fit: BoxFit.cover),
-    //               ),
-    //             ),
-    //             Container(
-    //               padding: const EdgeInsets.all(8),
-    //               child: LatLongWidget(
-    //                 horoscope: horoscope,
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //       Expanded(flex: 1, child: DetailedInfoWidget(horoscope: horoscope))
-    //       // Expanded(
-    //       //   flex: 5,
-    //       //   child: ReviewsWidget(location: location, animation: animation),
-    //       // ),
-    //       ,
-    //       Expanded(flex: 4, child: Text(horoscope.horoscopeDetail)),
-    //     ],
-    //   ),
-    // );
+  void findAppColor() async {
+    _generator = await PaletteGenerator.fromImageProvider(
+        AssetImage(widget.horoscope.horoscopeBigPicture));
+    appColor = _generator.dominantColor!.color;
+    setState(() {});
   }
 }

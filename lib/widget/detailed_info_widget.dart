@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horoscope_app/data/hero_tag.dart';
 import 'package:horoscope_app/model/horoscope.dart';
-
 import 'hero_widget.dart';
 
 class DetailedInfoWidget extends StatelessWidget {
@@ -44,11 +43,6 @@ class DetailedInfoWidget extends StatelessWidget {
                 ),
               ],
             ),
-
-            // HeroWidget(
-            //   tag: HeroTag.stars(location),
-            //   child: StarsWidget(stars: location.starRating),
-            // ),
           ],
         ),
       );
