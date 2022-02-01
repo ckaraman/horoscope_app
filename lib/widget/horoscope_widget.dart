@@ -7,7 +7,10 @@ import 'expanded_content_widget.dart';
 class HoroscopeWidget extends StatefulWidget {
   final Horoscope horoscope;
 
-  const HoroscopeWidget({required this.horoscope, Key? key}) : super(key: key);
+  const HoroscopeWidget({
+    required this.horoscope,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _HoroscopeWidgetState createState() => _HoroscopeWidgetState();

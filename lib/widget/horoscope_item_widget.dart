@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:horoscope_app/model/horoscope.dart';
 import 'package:horoscope_app/widget/horoscope_widget.dart';
+import 'package:palette_generator/palette_generator.dart';
 
 class HoroscopeItemWidget extends StatefulWidget {
   List<Horoscope> allHoroscope;
